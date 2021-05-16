@@ -15,6 +15,7 @@ class PostController extends Controller
     public function index()
     {
         //$posts = Post::orderBy('created_at', 'Desc')->with(['user', 'likes'])->paginate(20);
+        // no need to make Latest Scope in Post Model
         $posts = Post::latest()->with(['user', 'likes'])->paginate(20);
         return view('posts.index', compact('posts'));
     }
